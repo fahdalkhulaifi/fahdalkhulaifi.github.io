@@ -10,7 +10,7 @@ let userData = {
 // Google Gemini API Key and URI
 // Note: Replace with your actual API key
 // Ensure you keep your API key secure and do not expose it in public repositories.
-const API_KEY = "AIzaSyDtwlWpTQAGWcz8V3meawljIpRxGU7YPb8";
+const API_KEY = "AIzaSyBHN6out28qXA40GxTkmZqJwqqNPFeOhcA";
 const API_URI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
 const createContent = (content, className) =>{
@@ -161,6 +161,7 @@ chatbotToggleBtn.addEventListener('click', () => {
 
 
 removeChatbotBtn.addEventListener("click", () => document.body.classList.remove('chatbot-active'));
+
 
 
 
