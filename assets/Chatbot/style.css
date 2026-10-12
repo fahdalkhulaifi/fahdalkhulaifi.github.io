@@ -1,0 +1,333 @@
+/* Poppins Link Style */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Outfit Link Style */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+    padding:0 ;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+
+.container-main{
+    background-image: url("Background.webp");
+    width: 100%;
+    padding: 130px 4% 40px;
+    min-height: 100vh;
+    display: flex;
+   justify-content: center;
+   background: linear-gradient(#fcf9ff,#cbb3e5);
+}
+
+#chatbot-toggle-btn{
+    position: fixed;
+    bottom: 14px;
+    right: 28px;
+    width: 60px;
+    height: 60px;
+    background: #4b038d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    transition:  all 0.2s ease;
+}
+
+body.chatbot-active #chatbot-toggle-btn{
+    transform: rotate(85deg);
+}
+
+
+#chatbot-toggle-btn span{
+    position: absolute;
+    color: #fff;
+}
+body.chatbot-active #chatbot-toggle-btn span:first-child,
+#chatbot-toggle-btn span:last-child{
+    opacity: 0;
+}
+
+#chatbot-toggle-btn span:last-child{
+    opacity: 1;
+}
+
+
+.body-info{
+    text-align: center;
+}
+
+.container-main .body-info h1{
+    font-size: 4.8rem;
+    background: linear-gradient(45deg ,#4b038d, #ff006e, #4b038d,#f05196 );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.body-info p {
+    font-size: 23px;
+    color: #444;
+    font-family: "Outfit", sans-serif;
+    margin: 0 0 30px;
+}
+
+.body-info button {
+    padding: 16px 40px;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    background: #4b038d;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+
+.body-info button:hover{
+    background: #8381f5;
+}
+
+.chat-container{
+    width: 100%;
+    max-width: 420px;
+    right: 10px;      /* small margin from right edge */
+    background: #fff;
+    border-radius: 8px;
+    position: fixed;
+   bottom:77px;
+   right:35px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.2);
+    transform-origin: bottom right;
+    pointer-events: none;
+    transition: 0.1s ease-in-out;
+}
+
+@media (max-width: 450px) {
+    .chat-container {
+        width: 95%;   /* almost full width on small screens */
+        right: 2.5%;
+        bottom: 70px;
+    }
+
+    .chat-area {
+        height: 300px; /* reduce height to fit small screens */
+        padding: 15px;
+        gap: 15px;
+    }
+.chat-footer form textarea {
+        height: 30px;
+        font-size: 0.9rem;
+    }
+}
+
+body.chatbot-active .chat-container{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+
+.chat-head{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #4b038d;
+}
+
+.chat-info{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.chat-info svg{
+    width: 45px;
+    height: 45px;
+    background:#fff;
+    border-radius: 50%;
+    padding: 8px;
+    fill: #4b038d;
+}
+
+.chat-info h2{
+    color: #fff;
+    font-size:1.5rem;
+}
+
+.chat-head button{
+    width: 45px;
+    height: 45px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    background: #4b038d;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.chat-head button:hover{
+    transform: translateY(-3px);
+    background: #220042;
+}
+
+.chat-area{
+    padding: 26px 22px;
+    display: flex;
+    gap: 20px;
+    height: 400px;
+    margin-bottom: 81px;
+    overflow-y: auto;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ccccff transparent;
+}
+
+.chat-area .message{
+    display: flex;
+    gap: 11px;
+}
+
+.chat-area .message svg{
+    width: 45px;
+    height: 45px;
+    background:#4b038d;
+    border-radius: 50%;
+    padding: 8px;
+    fill: #fff;
+}
+
+.chat-area .message .text{
+    padding: 12px 16px;
+    max-width: 75%;
+    font-size: 0.96rem;
+}
+
+.chat-area .user-message{
+    flex-direction: column;
+      align-items: flex-end;
+}
+
+
+.chat-area .bot-message .text{
+    background: #f2f2ff;
+    border-radius: 13px 13px 13px 0;
+}
+
+.chat-area .user-message .text{
+    background: #4b038d;
+    color: #fff;
+    border-radius: 13px 13px 0 13px;
+}
+
+.thinking-indicator{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.thinking-indicator .dot{
+    width: 7px;
+    height: 7px;
+    background: #4b038d;
+    border-radius: 50%;
+    animation: dot-blink 1.8s ease-in-out infinite ;
+    opacity: 0.7;
+}
+
+.thinking-indicator .dot:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+
+.thinking-indicator .dot:nth-child(2){
+    animation-delay: 0.3s;
+}
+
+
+.thinking-indicator .dot:nth-child(3){
+    animation-delay: 0.4s;
+}
+
+
+@keyframes dot-blink {
+    0%,44%{
+        transform: translateY(0);
+    }
+    28%{
+        transform: translateY(-8px);
+    }
+
+    44%{
+        opacity: 0.2;
+    }
+    
+}
+
+
+.chat-footer{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    padding: 15px 22px 20px;
+    background: #fff;
+}
+
+.chat-footer form{
+    width: 100%;
+    padding: 11px 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    gap:10px;
+}
+
+.chat-footer form textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.96rem;
+    padding: 5px 0 0 0;
+    height: 35px;
+    resize: none;
+    margin-right: 2px;
+}
+
+.chat-footer form textarea:valid ~ #send-btn{
+    display:block;
+}
+
+#attach_file-btn{
+    border: none;
+    font-size: 1.4rem;
+    color: #333;
+    background: transparent;
+    cursor: pointer;
+}
+
+#send-btn{
+    padding: 8px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #4b038d;
+    color: #fff;
+    cursor: pointer;
+    flex-shrink: 0;
+    display:none;
+
+}
